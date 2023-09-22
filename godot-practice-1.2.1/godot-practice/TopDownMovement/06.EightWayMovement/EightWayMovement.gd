@@ -23,7 +23,7 @@ func _physics_process(_delta: float) -> void:
 
 	var direction_key := direction.round()
 	# Complete the next lines
-	direction_key.x
+	direction_key.x = abs(direction_key.x)
 	if direction_key in DIRECTION_TO_FRAME:
-		player_sprite.frame
-		player_sprite.flip_h
+		player_sprite.frame = DIRECTION_TO_FRAME[direction_key]
+		player_sprite.flip_h = sign(direction.x) == -1

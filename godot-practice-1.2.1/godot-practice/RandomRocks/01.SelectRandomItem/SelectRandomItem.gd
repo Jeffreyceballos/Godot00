@@ -26,4 +26,6 @@ var ITEMS := [
 
 func get_random_item() -> Dictionary:
 	# Return a random value from the ITEMS array instead of always the first one.
-	return ITEMS[0]
+	randomize()
+	var rand_item := randi() % ITEMS.size()
+	return ITEMS[rand_item]

@@ -19,11 +19,18 @@ anchor_right = 1.0
 margin_bottom = 79.0
 
 [node name="NameField" type="LineEdit" parent="HBoxContainer"]
-margin_right = 1016.0
+margin_right = 506.0
 margin_bottom = 79.0
 size_flags_horizontal = 3
 expand_to_text_length = true
 placeholder_text = "Enter Your Name"
+
+[node name="PointsField" type="LineEdit" parent="HBoxContainer"]
+margin_left = 510.0
+margin_right = 1016.0
+margin_bottom = 79.0
+size_flags_horizontal = 3
+expand_to_text_length = true
 
 [node name="OkButton" type="Button" parent="HBoxContainer"]
 margin_left = 1020.0

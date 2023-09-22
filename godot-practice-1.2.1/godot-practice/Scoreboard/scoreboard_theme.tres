@@ -1,9 +1,7 @@
 [gd_resource type="Theme" load_steps=4 format=2]
 
 [ext_resource path="res://common/fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=1]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.0901961, 0.0941176, 0.188235, 1 )
+[ext_resource path="res://DialogueBoxes/common/scoreboard_panel.tres" type="StyleBox" id=2]
 
 [sub_resource type="DynamicFont" id=2]
 size = 26
@@ -16,4 +14,4 @@ MarginContainer/constants/margin_bottom = 20
 MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20
 MarginContainer/constants/margin_top = 20
-PanelContainer/styles/panel = SubResource( 1 )
+PanelContainer/styles/panel = ExtResource( 2 )

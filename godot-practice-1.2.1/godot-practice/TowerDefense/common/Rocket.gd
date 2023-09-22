@@ -14,8 +14,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# The transform.x holds the direction in which the rocket is facing. We
 	# multiply that direction by `speed` to calculate the rocket's velocity.
-	position += transform.x * speed * delta
+	_move(delta)
 
+func _move(delta: float) -> void:
+	position += transform.x*speed*delta
 
 func explode() -> void:
 	# We load the explosion scene and instantiate it.

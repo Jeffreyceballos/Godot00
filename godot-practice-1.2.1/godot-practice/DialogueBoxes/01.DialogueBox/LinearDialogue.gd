@@ -27,6 +27,9 @@ func show_line(new_line_index: int) -> void:
 	var line_data: Dictionary = dialogue[line_index]
 	text_label.text = line_data["text"]
 	# Display the texture in the texture_rect and the name in the name_label.
+	texture_rect.texture = line_data["texture"]
+	name_label.text = line_data["name"]
+	
 
 
 func advance() -> void:

@@ -24,13 +24,15 @@ func _ready() -> void:
 	# You'll find three preloaded scenes at the top of the script: GameScene,
 	# OptionsScene, and CreditsScene. You'll need to bind them to the signal
 	# callback function.
+	options_button.connect("pressed", self, "show_screen", [OptionsScene])
 	
 	# Connect the credits_button node to show the CreditsScene when pressing the
 	# button.
+	credits_button.connect("pressed", self, "show_screen", [CreditsScene])
 
 	# Connect the quit_button to the SceneTree so pressing the button quits the game.
 	# You can get the SceneTree by calling get_tree().
-
+	quit_button.connect("pressed", get_tree(), "quit")
 
 
 func show_screen(scene: PackedScene) -> void:

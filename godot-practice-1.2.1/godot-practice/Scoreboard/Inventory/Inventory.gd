@@ -9,4 +9,5 @@ func _ready() -> void:
 func add_inventory_item() -> void:
 	# Create an instance of InventoryItem.tscn.
 	# Add it as a child of this node by calling the add_child() function.
-	pass
+	var inventoryItem := preload("InventoryItem.tscn").instance()
+	add_child(inventoryItem)

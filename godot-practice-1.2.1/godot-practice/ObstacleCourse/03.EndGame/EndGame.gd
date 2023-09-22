@@ -13,4 +13,5 @@ func _ready() -> void:
 
 func _on_RobotStatue_body_entered(_body: Node) -> void:
 	#  make sure to stop godot and show the finish screen here
-	pass
+	godot.set_physics_process(false)
+	finish_screen.show()
