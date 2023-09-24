@@ -1,0 +1,36 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://ObstacleCourse_Part2/obstacles/rocks/Rock1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ObstacleCourse_Part2/obstacles/rocks/Rock2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ObstacleCourse_Part2/obstacles/rocks/Rock3.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ObstacleCourse_Part2/pickups/PickupGhost.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ObstacleCourse_Part2/Godot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ObstacleCourse_Part2/pickups/PickupSpeed.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ObstacleCourse_Part2/obstacles/doors/DoorHorizontal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ObstacleCourse_Part2/obstacles/doors/PressurePlate.tscn" type="PackedScene" id=8]
+
+[node name="Node2D" type="YSort"]
+
+[node name="Godot" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1024, 640 )
+
+[node name="PickUpSpeed" parent="." instance=ExtResource( 6 )]
+position = Vector2( 768, 320 )
+
+[node name="PickupGhost" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1024, 320 )
+
+[node name="Rock1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1216, 448 )
+
+[node name="Rock2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1152, 704 )
+
+[node name="Rock3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1152, 576 )
+
+[node name="PressurePlate" parent="." instance=ExtResource( 8 )]
+position = Vector2( 256, 192 )
+
+[node name="Door" parent="PressurePlate" instance=ExtResource( 7 )]
+position = Vector2( 1472, 512 )

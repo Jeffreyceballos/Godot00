@@ -10,6 +10,7 @@ onready var ui_counter: Label = $UI/Counter
 func _ready() -> void:
 	# Connect godot_area's "area_entered" signal to the
 	# _on_GodotArea2D_area_entered() function.
+	godot_area.connect("area_entered", self, "_on_GodotArea2D_area_entered")
 	pass
 
 
@@ -18,4 +19,6 @@ func _on_GodotArea2D_area_entered(_area: Area2D) -> void:
 	# 2. Set the ui_counter.text property to
 	#    "Gems: " plus the counter variable converted to string
 	#    using the str() function.
+	counter += 1
+	ui_counter.text ="Gems: " + str(counter)
 	pass

@@ -5,7 +5,7 @@ var desired_velocity := Vector2.ZERO
 var steering_vector := Vector2.ZERO
 var drag_factor := 0.1
 
-var target: Node = null
+var target: PhysicsBody2D = null
 
 func _move(delta: float) -> void: 
 	# If the target has not been set, or has been destroyed, we destroy this

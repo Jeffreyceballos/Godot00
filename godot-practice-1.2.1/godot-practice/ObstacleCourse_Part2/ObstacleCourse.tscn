@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://ObstacleCourse_Part2/ObstacleCourse.gd" type="Script" id=1]
 [ext_resource path="res://ObstacleCourse_Part2/fonts/remaining_time_font.tres" type="DynamicFont" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://ObstacleCourse_Part2/Course.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ObstacleCourse_Part2/obstacles/PushWall.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ObstacleCourse_Part2/Godot.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ObstacleCourse_Part2/obstacles/doors/PressurePlate.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ObstacleCourse_Part2/obstacles/doors/DoorHorizontal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ObstacleCourse_Part2/obstacles/doors/DoorVertical.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ObstacleCourse_Part2/pickups/PickupGhost.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 320, 32 )
@@ -129,6 +133,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id=11]
 resource_name = "start_countdown"
 length = 3.0
+step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:text")
 tracks/0/interp = 1
@@ -220,8 +225,25 @@ position = Vector2( 960, 2816 )
 [node name="PushWall2" parent="Course/Obstacles" instance=ExtResource( 6 )]
 position = Vector2( 3136, 1920 )
 
-[node name="OffCourse" type="StaticBody2D" parent="Course"]
-collision_layer = 0
+[node name="Doors" type="Node2D" parent="Course/Obstacles"]
+
+[node name="PressurePlate" parent="Course/Obstacles/Doors" instance=ExtResource( 8 )]
+position = Vector2( 384, 512 )
+
+[node name="Door" parent="Course/Obstacles/Doors/PressurePlate" instance=ExtResource( 9 )]
+position = Vector2( -64, 320 )
+
+[node name="Door" parent="Course/Obstacles/Doors" instance=ExtResource( 9 )]
+position = Vector2( 704, 960 )
+
+[node name="Door2" parent="Course/Obstacles/Doors" instance=ExtResource( 10 )]
+position = Vector2( 1280, 448 )
+
+[node name="PickupGhost" parent="Course/Obstacles" instance=ExtResource( 11 )]
+position = Vector2( 512, 1344 )
+
+[node name="OffCourse" type="Area2D" parent="Course" groups=["offcourse"]]
+visible = false
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Course/OffCourse"]
@@ -275,6 +297,8 @@ shape = SubResource( 14 )
 [node name="Info" type="Label" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 rect_min_size = Vector2( 1920, 1080 )
 rect_scale = Vector2( 3, 3 )
 rect_pivot_offset = Vector2( 960, 540 )
@@ -292,7 +316,7 @@ text = "0.00"
 align = 2
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 12.0
+wait_time = 30.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
