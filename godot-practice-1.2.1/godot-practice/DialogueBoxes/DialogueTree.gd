@@ -63,7 +63,7 @@ func set_expression(expression: String) -> void:
 
 func create_buttons(buttons_data: Dictionary) -> void:
 	for text in buttons_data:
-		# add ned button
+		# add new button
 		var button := Button.new()
 		button.text = text
 		buttons_column.add_child(button)

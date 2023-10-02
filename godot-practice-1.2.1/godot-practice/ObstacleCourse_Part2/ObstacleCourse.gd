@@ -17,6 +17,14 @@ func _ready() -> void:
 	godot.set_physics_process(false)
 
 	ui_remaining_time.text = get_remaining_time_text(true)
+	
+	animation_player.play("course_overview")
+	animation_player.queue("start_countdown")
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		animation_player.seek(INF)
+		set_process_unhandled_input(false)
 
 func _process(delta: float) -> void:
 	ui_remaining_time.text = get_remaining_time_text(false)

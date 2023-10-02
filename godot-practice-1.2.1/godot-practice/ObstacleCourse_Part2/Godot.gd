@@ -25,6 +25,7 @@ onready var sprite := $Sprite
 onready var timerGhost := $TimerGhost
 onready var animateGhost := $AnimationPlayerGhost 
 onready var slowdown_area := $Area2D
+onready var smoke_particles := $SmokeParticles
 
 func _ready() -> void:
 	timerGhost.connect("timeout", self, "toggle_ghost_effect", [false])
@@ -52,6 +53,8 @@ func _physics_process(_delta: float) -> void:
 	if direction_key in DIRECTION_TO_FRAME:
 		sprite.frame = DIRECTION_TO_FRAME[direction_key]
 		sprite.flip_h = sign(direction.x) == -1
+		
+	smoke_particles.emitting = velocity.length() > SPEED_DEFAULT / 2
 
 func apply_speed_effect() -> void:
 	speed = SPEED_FAST
@@ -66,7 +69,7 @@ func toggle_ghost_effect(is_on : bool) -> void:
 		collision_layer = start_collision_layer
 		collision_mask = start_collision_mask
 		animateGhost.stop()
-		sprite.modulate[3] = 1
+		#sprite.modulate[3] = 1
 	return
 
 func _on_Area2D_area_entered(area: Area2D) -> void:

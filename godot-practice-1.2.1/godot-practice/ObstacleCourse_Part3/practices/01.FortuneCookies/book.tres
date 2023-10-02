@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://ObstacleCourse_Part3/practices/01.FortuneCookies/Book.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+lines = [ "It's not a bug. it's an undocumented feature!", "Programming is the process of putting new bugs in.", "Computers are useless. They only give you answers." ]

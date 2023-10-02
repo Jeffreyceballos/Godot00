@@ -13,4 +13,5 @@ func _ready() -> void:
 func _on_body_entered(body: Node):
 	# The body is the robot here so you can access the robot's velocity by writing body.velocity, for example.
 	# Make sure the robot is propelled by jump_increase_amount.
-	pass
+	body.velocity.y -= jump_increase_amount
+	body.jump_number += 1

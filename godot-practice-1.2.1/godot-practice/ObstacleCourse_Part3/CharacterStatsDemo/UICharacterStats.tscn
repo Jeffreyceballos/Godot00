@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ObstacleCourse_Part3/CharacterStatsDemo/CharacterSpinBox.gd" type="Script" id=1]
 [ext_resource path="res://ObstacleCourse_Part3/CharacterStatsDemo/UICharacter.gd" type="Script" id=2]
+[ext_resource path="res://ObstacleCourse_Part3/CharacterStatsDemo/stats.tres" type="Resource" id=3]
 [ext_resource path="res://ObstacleCourse_Part3/CharacterStatsDemo/UICharacterStats.gd" type="Script" id=4]
 [ext_resource path="res://ObstacleCourse_Part3/assets/obstacle_course_part3.theme" type="Theme" id=5]
 [ext_resource path="res://ObstacleCourse_Part3/CharacterStatsDemo/godot.png" type="Texture" id=6]
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 5 )
 script = ExtResource( 4 )
+character_stats = ExtResource( 3 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_left = 0.5
